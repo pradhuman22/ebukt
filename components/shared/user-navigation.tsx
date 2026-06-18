@@ -47,7 +47,10 @@ const UserNavigation = ({ user }: { user: Session["user"] | null }) => {
       >
         <Avatar className="border-border h-10 w-10 rounded-full border bg-white p-1">
           <AvatarImage
-            src={`https://ebukt.t3.storage.dev/${user?.image}` || "/user.svg"}
+            src={
+              `${process.env.NEXT_PUBLIC_S3_IMAGE_PATH}/${user?.image}` ||
+              "/user.svg"
+            }
             alt={user?.name}
           />
         </Avatar>

@@ -172,12 +172,11 @@ const UpdateAccountForm = ({ user }: { user: Session["user"] | null }) => {
                     htmlFor={field.name}
                     className="relative mx-auto flex max-w-40 cursor-pointer items-center justify-center rounded-full border"
                   >
-                    {process.env.NEXT_AWS_BUCKET_NAME_S3}
                     <Avatar className="h-40 w-40">
                       <AvatarImage
                         src={
                           previewUrl ||
-                          `https://ebukt.t3.storage.dev/${form.getValues("image")}` ||
+                          `${process.env.NEXT_PUBLIC_S3_IMAGE_PATH}/${form.getValues("image")}` ||
                           undefined
                         }
                         alt={form.getValues("name")}
